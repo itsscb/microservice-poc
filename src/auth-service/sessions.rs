@@ -12,6 +12,14 @@ pub struct SessionsImpl {
     uuid_to_session: HashMap<String, String>,
 }
 
+impl SessionsImpl {
+    pub fn new() -> Self {
+        Self {
+            uuid_to_session: HashMap::new(),
+        }
+    }
+}
+
 impl Sessions for SessionsImpl {
     fn create_session(&mut self, user_uuid: &str) -> String {
         let session: String = Uuid::new_v4().to_string(); // Create a new session using Uuid::new_v4().
